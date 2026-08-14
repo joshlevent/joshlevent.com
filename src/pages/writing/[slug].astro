@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing', ({ data }) => !data.draft);
+  return posts.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const fmt = (x) => x.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<BaseLayout title={d.title} description={d.description} image={d.hero?.src} article={true}>
+  <article class="prose">
+    <SectionLabel href="/writing" label="Writing" meta={fmt(d.date)} />
+    <h1>{d.title}</h1>
+    {d.hero && <img src={d.hero.src} alt={d.hero.alt} />}
+    <Content />
+    <a class="backlink" href="/writing">← All writing</a>
+  </article>
+</BaseLayout>

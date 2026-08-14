@@ -1,0 +1,70 @@
+---
+// Site navigation. Mirrors the original IA: Work / About / Creative Output.
+// To add a link, drop it into the relevant group below.
+const groups = [
+  { label: 'Work', items: [
+    { href: '/coaching', text: 'Coaching' },
+    { href: '/teaching', text: 'Teaching' },
+    { href: '/research', text: 'Research' },
+    { href: '/consulting', text: 'Consulting' },
+  ]},
+  { label: 'About', items: [
+    { href: '/bio', text: 'Bio' },
+    { href: '/awards-press', text: 'Awards & Press' },
+    { href: '/contact', text: 'Contact' },
+    { href: '/now', text: 'Now' },
+  ]},
+  { label: 'Creative Output', items: [
+    { href: '/podcast', text: 'Podcast' },
+    { href: '/talks', text: 'Talks' },
+    { href: '/art', text: 'Visual Art' },
+    { href: '/writing', text: 'Writing' },
+    { href: '/business-design', text: 'Business Design' },
+  ]},
+];
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/">Josh Levent</a>
+    <input type="checkbox" id="nav-toggle" hidden />
+    <label for="nav-toggle" class="nav-burger" aria-label="Menu">≡</label>
+    <nav class="nav">
+      {groups.map((g) => (
+        <div class="nav-group">
+          <span class="nav-group-label">{g.label}</span>
+          <div class="nav-menu">
+            {g.items.map((i) => <a href={i.href}>{i.text}</a>)}
+          </div>
+        </div>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header { border-bottom: 1px solid var(--line); background: var(--header-background, color-mix(in srgb, var(--paper) 88%, white)); position: sticky; top: 0; z-index: 50; -webkit-backdrop-filter: var(--header-backdrop-filter, blur(6px)); backdrop-filter: var(--header-backdrop-filter, blur(6px)); }
+  .bar { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 0; gap: 1rem; }
+  .brand { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; text-decoration: none; color: var(--ink); }
+  .nav { display: flex; gap: 1.75rem; font-family: var(--font-display); }
+  .nav-group { position: relative; }
+  .nav-group-label { font-size: 0.95rem; font-weight: 500; cursor: default; color: var(--ink-soft); }
+  .nav-menu { display: flex; flex-direction: column; gap: 0.1rem; position: absolute; top: 1.7rem; left: 0;
+              background: var(--paper-card); border: 1px solid var(--line); border-radius: var(--radius);
+              padding: 0.5rem; min-width: 11rem; opacity: 0; visibility: hidden; transform: translateY(4px);
+              transition: all .15s ease; box-shadow: 0 12px 34px -18px rgba(0,0,0,.3); }
+  .nav-group:hover .nav-menu, .nav-group:focus-within .nav-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+  .nav-menu a { padding: 0.4rem 0.6rem; border-radius: 6px; text-decoration: none; color: var(--ink); font-size: 0.95rem; }
+  .nav-menu a:hover { background: var(--paper); color: var(--accent); }
+  .nav-burger { display: none; font-size: 1.6rem; cursor: pointer; line-height: 1; user-select: none; }
+
+  @media (max-width: 760px) {
+    .nav-burger { display: block; }
+    .nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; gap: 0.75rem;
+           background: var(--paper-card); border-bottom: 1px solid var(--line); padding: 1rem 1.25rem;
+           display: none; }
+    #nav-toggle:checked ~ .nav { display: flex; }
+    .nav-menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none;
+                border: none; padding: 0.25rem 0 0.25rem 0.75rem; min-width: 0; }
+    .nav-group-label { font-weight: 600; color: var(--ink); }
+  }
+</style>

@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<PageLayout title={d.title} description={d.description} eyebrow={d.client} hero={d.hero} sectionHref="/business-design" sectionLabel="Business Design">
+  <Content />
+  <ImageGallery images={d.gallery} layout="stack" label={`${d.title} project images`} />
+  <a class="backlink" href="/business-design">← All projects</a>
+</PageLayout>

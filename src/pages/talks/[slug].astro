@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+export async function getStaticPaths() {
+  const talks = await getCollection('talks');
+  return talks.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<PageLayout title={d.title} description={d.description} hero={d.hero} sectionHref="/talks" sectionLabel="Talks">
+  {d.youtube && (
+    <p class="video"><iframe width="100%" height="400" src={`https://www.youtube.com/embed/${d.youtube}`} title={d.title} frameborder="0" allowfullscreen></iframe></p>
+  )}
+  <Content />
+  <a class="backlink" href="/talks">← All talks</a>
+</PageLayout>

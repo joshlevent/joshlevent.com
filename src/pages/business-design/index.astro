@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Business Design" description="Business design case studies by Josh Levent.">
+  <div class="prose">
+    <p class="eyebrow">Creative Output</p>
+    <h1>Business Design</h1>
+    <p class="lead">Selected projects where I used design methods to find the intersection of human needs, technical feasibility and business viability.</p>
+  </div>
+  <div class="wrap">
+    <div class="card-grid">
+      {projects.map((p) => (
+        <a class="card" href={`/business-design/${p.id}`}>
+          <img class="card-image" src={p.data.thumbnail.src} alt="" loading="lazy" decoding="async" />
+          <h3>{p.data.title}</h3>
+          {p.data.client && <p><strong>{p.data.client}</strong></p>}
+          {p.data.description && <p>{p.data.description}</p>}
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

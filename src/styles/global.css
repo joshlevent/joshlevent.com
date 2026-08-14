@@ -1,0 +1,260 @@
+/* ===========================================================================
+   Design tokens — change these to restyle the whole site.
+   =========================================================================== */
+:root {
+  --ink:        #1a1a1a;
+  --ink-soft:   #4a4a4a;
+  --paper:      #faf8f4;
+  --paper-card: #ffffff;
+  --line:       #e5e1d8;
+  --accent:     #b4502a;   /* terracotta — used for links & marks */
+  --accent-ink: #8f3d20;
+
+  --font-display: Inter, "Avenir Next", Avenir, Futura, "Century Gothic", sans-serif;
+  --font-body: Georgia, "Times New Roman", serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;   /* Inter ligatures; harmless elsewhere */
+
+  --measure: 42rem;        /* comfortable reading width */
+  --wide:    72rem;        /* page max width */
+  --gap:     clamp(1rem, 2vw, 1.5rem);
+  --radius:  10px;
+}
+
+/* Prefer the variable cut where the browser supports it. */
+@supports (font-variation-settings: normal) {
+  :root {
+    --font-display: InterVariable, Inter, "Avenir Next", Avenir, Futura, "Century Gothic", sans-serif;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.has-page-background {
+  --header-background: rgba(250, 248, 244, 0.75);
+  --header-backdrop-filter: blur(10px);
+  --footer-background: rgba(250, 248, 244, 0.75);
+  --footer-backdrop-filter: blur(10px);
+  position: relative;
+  isolation: isolate;
+  background: transparent;
+}
+
+.page-backdrop {
+  position: fixed;
+  inset: -12vh 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(5, 8, 10, 0.3), rgba(5, 8, 10, 0.43)),
+    var(--page-background-image);
+  background-position: center, var(--page-background-position, center 62%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translate3d(0, var(--page-parallax-offset, 6vh), 0);
+  will-change: transform;
+}
+
+body.has-page-background > header,
+body.has-page-background > main,
+body.has-page-background > footer {
+  position: relative;
+  z-index: 1;
+}
+
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; font-weight: 700; }
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); letter-spacing: -0.01em; margin: 0 0 0.5em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin: 2em 0 0.6em; }
+h3 { font-size: 1.25rem; margin: 1.6em 0 0.4em; }
+
+a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { color: var(--accent-ink); }
+
+img { max-width: 100%; height: auto; border-radius: var(--radius); display: block; }
+
+.inline-logo-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.inline-logo-row img { width: auto; height: 3rem; object-fit: contain; border-radius: 0; }
+
+.podcast-app-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1rem;
+  margin: 1.5rem 0;
+}
+.podcast-app-row img { width: 2.5rem; height: 2.5rem; object-fit: contain; border-radius: 0; }
+
+hr { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+
+blockquote {
+  margin: 1.5rem 0; padding: 0.4rem 0 0.4rem 1.25rem;
+  border-left: 3px solid var(--accent); color: var(--ink-soft); font-style: italic;
+}
+
+table { width: 100%; border-collapse: collapse; font-size: 0.92rem; margin: 1.5rem 0; }
+th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
+
+/* ===========================================================================
+   Layout helpers
+   =========================================================================== */
+.wrap   { width: min(100% - 2.5rem, var(--wide)); margin-inline: auto; }
+.prose  { width: min(100% - 2.5rem, var(--measure)); margin-inline: auto; }
+.prose > * + * { margin-top: 1rem; }
+.prose > .hero-image--compact {
+  float: right;
+  width: 18rem;
+  max-width: 50%;
+  margin: -3rem 0 1rem 1.5rem;
+}
+.prose--page-background {
+  width: min(100% - 2.5rem, calc(var(--measure) + 4rem));
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background: rgba(250, 248, 244, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: calc(var(--radius) + 4px);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.lead   { font-size: 1.2rem; color: var(--ink-soft); }
+.eyebrow{ text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.78rem;
+          font-weight: 600; color: var(--accent); font-family: var(--font-display); }
+.center { text-align: center; }
+
+.section-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+.section-label a {
+  color: var(--accent);
+}
+.section-label-separator,
+.section-label-meta {
+  color: var(--ink-soft);
+}
+main { padding: clamp(2rem, 5vw, 4rem) 0 1rem; min-height: 60vh; }
+
+body.has-page-background main {
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+body.has-page-background .site-footer {
+  margin-top: 0;
+}
+
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  body.has-page-background {
+    --header-background: rgba(250, 248, 244, 0.9);
+    --footer-background: rgba(250, 248, 244, 0.9);
+  }
+
+  .prose--page-background {
+    background: rgba(250, 248, 244, 0.9);
+  }
+}
+
+@media (max-width: 40rem) {
+  .prose--page-background {
+    width: min(100% - 1.5rem, calc(var(--measure) + 4rem));
+    padding: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-backdrop {
+    position: absolute;
+    inset: 0;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+/* Card grid for section landing pages */
+.card-grid {
+  display: grid; gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  margin: 2rem 0;
+}
+.card {
+  display: block; padding: 1.4rem 1.5rem; background: var(--paper-card);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  text-decoration: none; color: inherit; transition: transform .15s ease, box-shadow .15s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px -16px rgba(0,0,0,.25); }
+.card .card-image { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; margin-bottom: 1rem; }
+.card h3 { margin: 0 0 .3rem; }
+.card p  { margin: 0; color: var(--ink-soft); font-size: 0.95rem; }
+
+/* Wide feature grids */
+.prose--wide { width: min(100% - 2.5rem, var(--wide)); }
+.prose--wide > :not(.teaching-grid):not(.trainer-grid) {
+  width: min(100%, var(--measure));
+  margin-inline: auto;
+}
+.teaching-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-block: 2.5rem;
+}
+.teaching-card { min-width: 0; }
+.teaching-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.teaching-card h3 { margin: 1rem 0 0.55rem; }
+.teaching-card p { margin: 0; color: var(--ink-soft); }
+
+/* Entrepreneurship trainer page */
+.trainer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin-block: 2.5rem;
+}
+.trainer-card {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: start;
+  min-width: 0;
+}
+.trainer-card h3 { margin: 0 0 0.8rem; }
+.trainer-card img {
+  width: 100%;
+  aspect-ratio: 480 / 217;
+  object-fit: contain;
+}
+.trainer-card p { margin: 1rem 0 0; color: var(--ink-soft); }
+
+@media (max-width: 52rem) {
+  .teaching-grid { grid-template-columns: 1fr; }
+  .teaching-card { width: min(100%, var(--measure)); margin-inline: auto; }
+  .trainer-grid { grid-template-columns: 1fr; }
+  .trainer-card { width: min(100%, var(--measure)); margin-inline: auto; }
+}
+
+/* Post list */
+.post-list { list-style: none; padding: 0; margin: 2rem 0; }
+.post-list li { padding: 1.25rem 0; border-bottom: 1px solid var(--line); }
+.post-list .post-thumbnail { width: 7rem; aspect-ratio: 4 / 3; object-fit: cover; float: right; margin: 0 0 0.75rem 1rem; }
+.post-list a.title { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; text-decoration: none; color: var(--ink); }
+.post-list a.title:hover { color: var(--accent); }
+.post-list .meta { display: block; color: var(--ink-soft); font-size: 0.85rem; margin-top: .2rem; }
+.post-list p { color: var(--ink-soft); margin: .4rem 0 0; }
+
+.backlink { display: inline-block; margin-top: 2.5rem; font-size: 0.9rem; }

@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  meta?: string;
+}
+
+const { href, label, meta } = Astro.props;
+---
+
+<p class="eyebrow section-label">
+  <a href={href}>{label}</a>
+  {meta && (
+    <>
+      <span class="section-label-separator" aria-hidden="true">·</span>
+      <span class="section-label-meta">{meta}</span>
+    </>
+  )}
+</p>

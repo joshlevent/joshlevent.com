@@ -1,0 +1,20 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap foot">
+    <p>Josh Levent, Bern, Switzerland — <a href="mailto:connect@joshlevent.com">connect@joshlevent.com</a></p>
+    <p class="links">
+      <a href="https://www.linkedin.com/in/joshlevent">LinkedIn</a> ·
+      <a href="https://www.youtube.com/channel/UCQ96dmgPTym5fIzyrS-FW4A">YouTube</a> ·
+      <a href="/writing/rss.xml">RSS</a>
+    </p>
+    <p class="fine">© {year} Josh Levent</p>
+  </div>
+</footer>
+<style>
+  .site-footer { border-top: 1px solid var(--line); margin-top: 4rem; padding: 2rem 0; font-size: 0.9rem; color: var(--ink-soft); background: var(--footer-background, transparent); -webkit-backdrop-filter: var(--footer-backdrop-filter, none); backdrop-filter: var(--footer-backdrop-filter, none); }
+  .foot { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; align-items: baseline; justify-content: space-between; }
+  .foot p { margin: 0; }
+  .fine { opacity: 0.7; }
+</style>

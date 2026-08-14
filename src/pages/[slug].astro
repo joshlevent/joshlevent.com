@@ -1,0 +1,25 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
+import ImageGallery from '../components/ImageGallery.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<PageLayout
+  title={d.title}
+  description={d.description}
+  eyebrow={d.nav}
+  hero={d.hero}
+  heroPresentation={entry.id === 'research' ? 'page-background' : 'inline'}
+  contentClass={entry.id === 'teaching' ? 'prose prose--wide' : 'prose'}
+>
+  <Content />
+  <ImageGallery images={d.gallery} layout="grid" label={`${d.title} gallery`} />
+</PageLayout>

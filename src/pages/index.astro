@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { workedWithLogos, wouldLikeToWorkWithLogos } from '../data/home-logos';
+
+const sections = [
+  { href: '/coaching', title: 'Coaching', text: 'Solutions-focused coaching for founders, speakers and therapists.' },
+  { href: '/teaching', title: 'Teaching', text: 'Design thinking, no-code, Power BI and entrepreneurship at Swiss universities.' },
+  { href: '/research', title: 'Research', text: 'Agent-based simulations of human economic behaviour to guide policy.' },
+  { href: '/consulting', title: 'Consulting', text: 'A sharp mind applied to problems without an obvious approach.' },
+  { href: '/talks', title: 'Talks', text: 'Two TED Talks and more, on change, emotion and stories.' },
+  { href: '/writing', title: 'Writing', text: 'Essays on economics, design and being human.' },
+];
+
+---
+<BaseLayout title="Josh Levent">
+  <section class="hero wrap">
+    <p class="eyebrow">Economist · Designer · Data Scientist</p>
+    <h1>I help smart companies create the future.</h1>
+    <p class="lead">
+      Teacher. TEDx speaker. Power BI Expert. I work at the intersection of human
+      behaviour, design and economics — from coaching founders to simulating whole economies.
+    </p>
+    <p><a href="/bio">Read my story →</a> &nbsp; <a href="/contact">Get in touch →</a></p>
+  </section>
+
+  <section class="wrap">
+    <div class="card-grid">
+      {sections.map((s) => (
+        <a class="card" href={s.href}><h3>{s.title}</h3><p>{s.text}</p></a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap logos">
+    <p class="eyebrow center">Notable organisations I've worked with</p>
+    <div class="logo-row">
+      {workedWithLogos.map((logo) => (
+        <figure title={`${logo.name} — ${logo.role}`}>
+          <img src={logo.src} alt={logo.name} loading="lazy" decoding="async" />
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap logos">
+    <p class="eyebrow center">Organisations I would love to work with — <a href="/contact">please get in touch</a></p>
+    <div class="logo-row">
+      {wouldLikeToWorkWithLogos.map((logo) => (
+        <figure title={logo.name}>
+          <img src={logo.src} alt={logo.name} loading="lazy" decoding="async" />
+        </figure>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: clamp(1rem, 4vw, 3rem) 0; max-width: 48rem; }
+  .logos { margin-top: 3rem; }
+  .logo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 1.25rem; align-items: center; margin-top: 1.25rem; }
+  .logo-row figure { display: grid; place-items: center; height: 5rem; margin: 0; padding: .75rem; }
+  .logo-row img { max-width: 100%; max-height: 3rem; width: auto; filter: grayscale(1); opacity: .6; transition: all .2s; border-radius: 0; }
+  .logo-row img:hover { filter: none; opacity: 1; }
+</style>

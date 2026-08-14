@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const talks = (await getCollection('talks')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Talks" description="TED Talks and other public speaking by Josh Levent.">
+  <div class="prose">
+    <p class="eyebrow">Creative Output</p>
+    <h1>Talks</h1>
+  </div>
+  <div class="wrap">
+    <div class="card-grid">
+      {talks.map((t) => (
+        <a class="card" href={`/talks/${t.id}`}>
+          <img class="card-image" src={t.data.thumbnail.src} alt="" loading="lazy" decoding="async" />
+          <h3>{t.data.title}</h3>
+          {t.data.description && <p>{t.data.description}</p>}
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = (d) => d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<BaseLayout title="Writing" description="Essays on economics, design and being human.">
+  <div class="prose">
+    <p class="eyebrow">Creative Output</p>
+    <h1>Writing</h1>
+    <ul class="post-list">
+      {posts.map((p) => (
+        <li>
+          <img class="post-thumbnail" src={p.data.thumbnail.src} alt="" loading="lazy" decoding="async" />
+          <a class="title" href={`/writing/${p.id}`}>{p.data.title}</a>
+          <span class="meta">{fmt(p.data.date)}</span>
+          {p.data.description && <p>{p.data.description}</p>}
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>

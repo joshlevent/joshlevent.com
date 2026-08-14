@@ -1,0 +1,14 @@
+dist/
+node_modules/
+.astro/
+.playwright-cli/
+
+.env
+.env.production
+npm-debug.log*
+
+docs/archive/squarespace-image-sources.json
+originals/
+README.local.md
+
+.DS_Store

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Advanced AI sycophancy</title>
+  <desc id="desc">Two overlapping speech bubbles, one offering praise and the other questioning it.</desc>
+  <rect width="1200" height="900" fill="#f3ece2"/>
+  <circle cx="1080" cy="110" r="250" fill="#e5c2af" opacity=".55"/>
+  <circle cx="120" cy="790" r="270" fill="#d2b88f" opacity=".42"/>
+  <path d="M168 180h610c65 0 118 53 118 118v190c0 65-53 118-118 118H520L358 728l34-122H168c-65 0-118-53-118-118V298c0-65 53-118 118-118Z" fill="#fffdf9" stroke="#1a1a1a" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M702 390h330c65 0 118 53 118 118v128c0 65-53 118-118 118H914l-130 96 28-96H702c-65 0-118-53-118-118V508c0-65 53-118 118-118Z" fill="#b4502a" stroke="#1a1a1a" stroke-width="18" stroke-linejoin="round"/>
+  <text x="470" y="325" fill="#1a1a1a" font-family="Avenir Next, Avenir, sans-serif" font-size="56" font-weight="700" text-anchor="middle">You’re sharper than</text>
+  <text x="470" y="397" fill="#1a1a1a" font-family="Avenir Next, Avenir, sans-serif" font-size="56" font-weight="700" text-anchor="middle">you realise.</text>
+  <text x="867" y="545" fill="#fffdf9" font-family="Georgia, serif" font-size="44" font-style="italic" text-anchor="middle">Am I?</text>
+  <text x="867" y="608" fill="#fffdf9" font-family="Georgia, serif" font-size="44" font-style="italic" text-anchor="middle">Or is that the trick?</text>
+</svg>

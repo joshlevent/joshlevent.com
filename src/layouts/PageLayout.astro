@@ -1,0 +1,47 @@
+---
+// Generic content page (intro + prose body). Used by the [slug] pages.
+import BaseLayout from './BaseLayout.astro';
+import SectionLabel from '../components/SectionLabel.astro';
+const {
+  title,
+  description,
+  eyebrow,
+  hero,
+  article,
+  sectionHref,
+  sectionLabel,
+  contentClass = 'prose',
+  heroPresentation = 'inline',
+} = Astro.props;
+
+const resolvedHeroPresentation = hero?.presentation ?? heroPresentation;
+const usePageBackground = Boolean(hero && resolvedHeroPresentation === 'page-background');
+const heroClass = [
+  'hero-image',
+  resolvedHeroPresentation === 'compact-inline' && 'hero-image--compact',
+]
+  .filter(Boolean)
+  .join(' ');
+const articleClass = [contentClass, usePageBackground && 'prose--page-background']
+  .filter(Boolean)
+  .join(' ');
+---
+<BaseLayout
+  title={title}
+  description={description}
+  image={hero?.src}
+  article={article}
+  pageBackground={usePageBackground ? hero.src : undefined}
+>
+  <article class={articleClass}>
+    {sectionHref && sectionLabel ? (
+      <SectionLabel href={sectionHref} label={sectionLabel} meta={eyebrow} />
+    ) : (
+      eyebrow && <p class="eyebrow">{eyebrow}</p>
+    )}
+    <h1>{title}</h1>
+    {description && <p class="lead">{description}</p>}
+    {hero && !usePageBackground && <img class={heroClass} src={hero.src} alt={hero.alt} />}
+    <slot />
+  </article>
+</BaseLayout>

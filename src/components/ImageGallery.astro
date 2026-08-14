@@ -1,0 +1,59 @@
+---
+import type { ImageAsset } from '../types/images';
+
+const {
+  images = [],
+  layout = 'grid',
+  label = 'Image gallery',
+} = Astro.props as { images?: ImageAsset[]; layout?: 'grid' | 'stack'; label?: string };
+---
+{images.length > 0 && (
+  <section class:list={['image-gallery', `image-gallery--${layout}`]} aria-label={label}>
+    {images.map((image) => (
+      <figure>
+        <img
+          src={image.src}
+          alt={image.alt}
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    ))}
+  </section>
+)}
+
+<style>
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gap);
+    margin: 2.5rem 0;
+    position: relative;
+    left: 50%;
+    width: min(calc(100vw - 2.5rem), var(--wide));
+    transform: translateX(-50%);
+  }
+
+  figure { margin: 0; }
+  img { width: 100%; }
+
+  .image-gallery--grid img { height: auto; }
+
+  .image-gallery--stack {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .image-gallery--stack img {
+    border-radius: 0;
+    box-shadow: 0 8px 28px -20px rgba(0, 0, 0, .35);
+  }
+
+  @media (max-width: 900px) {
+    .image-gallery--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 620px) {
+    .image-gallery { grid-template-columns: 1fr; }
+  }
+</style>

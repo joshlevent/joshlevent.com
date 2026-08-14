@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+export async function getStaticPaths() {
+  const offers = await getCollection('coaching');
+  return offers.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<PageLayout
+  title={d.title}
+  description={d.description}
+  hero={d.hero}
+  sectionHref="/coaching"
+  sectionLabel="Coaching"
+  contentClass={entry.id === 'entrepreneurship-trainer' ? 'prose prose--wide' : 'prose'}
+>
+  <Content />
+  <a class="backlink" href="/coaching">← All coaching</a>
+</PageLayout>
