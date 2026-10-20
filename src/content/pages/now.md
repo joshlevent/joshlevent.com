@@ -2,18 +2,18 @@
 title: Now
 nav: About
 description: ""
-updated: "2024-05-07"
+updated: "2026-10-20"
 ---
 
-*Updated 7 May 2024. (Now page inspired by [Derek Sivers](https://nownownow.com/about).)*
+*Updated October 2026. (Now page inspired by [Derek Sivers](https://nownownow.com/about).)*
 
-Last year I attended a 1-week intensive [summer school](https://www.santannapisa.it/it/seasonalschool/agent-based-models-economics-theory-toolkit-and-policy-laboratories) related to my [research interests in economic simulation](/research). My obsession with economic simulation has slowly grown over the last three years and since the beginning of last year I was able to dedicate much more time to building the necessary skillset. I've taken classes across all areas of economics (and some CS classes like Machine Learning) at the University of Neuchâtel. Economic Simulation is a long-term project that I expect to spend at least the next 10-20 years working on.
+In January I finished my second Master's degree, an MSc in Applied Economics at the University of Neuchâtel, with a [thesis](/economics) on whether agent-based model forecasts add information to the usual macroeconomic benchmarks. Since then most of my economics time has gone into the [Macroeconomic Outlook](https://macroeconomic-outlook.joshlevent.com/), a site that collects official data and publications for 65 economies and updates itself daily.
 
-I'm still working at the Bern University of Applied Science. Last week I taught the 7th edition of a public speaking course in the [Master of Design](https://www.hkb.bfh.ch/en/studies/master/design/) with [Ferdinand Vogler](https://ferdinandvogler.com) at the BFH Fine Arts School. I'm also in the middle of teaching the 5th edition of the [Power BI Bootcamp short course](https://www.bfh.ch/en/continuing-education/specialist-courses/powerbi-bootcamp/) at the Business School. Last Autumn, I again taught modules in 2 courses of the [Master in Digital Business Administration](https://www.bfh.ch/en/studies/master/digital-business-administration/): Enabling Technologies (I teach no-code, 4th edition) and Emerging Technologies (I teach innovation, 3rd edition). In both courses I facilitated a hands-on day where students built digital technology prototypes.
+I still teach at the Bern University of Applied Sciences. The [Power BI Bootcamp](/power-bi) runs several times a year, and I have started publishing the tutorial videos I make for it. Alongside the teaching I have been building a Microsoft Fabric data platform and Power BI reporting for the university. The Master of Digital Business Administration modules I taught for four years have ended; the [Present your Projects](/teaching) workshop at the HKB still runs once a year.
 
-Ongoing is my work as a Data Steward for the BFH helping drive open science through open research data. I've also become a bit of a Power BI expert in the university and am working on a marketing management dashboard for internal use, and running internal trainings and workshops to help spread those skills and my experience.
+Two side projects took shape this year: a [location dossier](/projects/standortdossier) for Swiss home buyers that builds a report on any address from public registers and geodata, and [Unsigned](/projects/unsigned), a walk through a building whose signs thin out room by room until there are none.
 
-I'm still a volunteer firefighter (monthly trainings) and I'm still playing a lot with generative AI tools like [MidJourney](/art) and [ChatGPT](/writing/party-in-the-land-of-babel). On the side I'm reading more sci-fi, working out more, and learning French on Duolingo. I also think and talk a lot about AGI, David Deutsch's theories of knowledge and effective methods of teaching and learning.
+I stepped down from the volunteer fire service in 2025 after five years. I read sci-fi, I am still fascinated by David Deutsch's theory of knowledge, and I spend a good deal of time thinking about what AI does to work, including my own.
 
 ![Now](/images/pages/now/now.jpg)
 *The ever-present now. Digital art (MidJourney) by Josh Levent.*

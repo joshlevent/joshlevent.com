@@ -16,11 +16,17 @@ const redirects = {
   '/gtfu': '/business-design/gtfu',
   '/muutu': '/business-design/muutu',
   '/cassarius': '/business-design/data-center-automation',
+  // 2026 restructure: research folded into economics, coaching offers folded into one page
+  '/research': '/economics',
+  '/coaching/entrepreneurship-trainer': '/coaching',
+  '/coaching/tedx-coaching': '/coaching',
+  '/coaching/for-therapists': '/coaching',
+  '/coaching/general-coaching': '/coaching',
   // Coaching offers moved under /coaching/
-  '/entrepreneurship-trainer': '/coaching/entrepreneurship-trainer',
-  '/for-therapists': '/coaching/for-therapists',
-  '/tedx-coaching': '/coaching/tedx-coaching',
-  '/general-coaching': '/coaching/general-coaching',
+  '/entrepreneurship-trainer': '/coaching',
+  '/for-therapists': '/coaching',
+  '/tedx-coaching': '/coaching',
+  '/general-coaching': '/coaching',
   // Blog posts: drop the date segments, keep the slug
   '/writing/2023/4/6/swiss-income-tax-for-high-earners': '/writing/swiss-income-tax-for-high-earners',
   '/writing/2023/3/17/party-in-the-land-of-babel': '/writing/party-in-the-land-of-babel',

@@ -1,6 +1,6 @@
 ---
 title: Visual Art
-nav: Creative Output
+nav: About
 description: "A series of abstract explorations made with MidJourney, 2022."
 gallery:
   - src: "/images/art/01-abstract-squares.jpg"

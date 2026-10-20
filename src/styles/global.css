@@ -258,3 +258,26 @@ body.has-page-background .site-footer {
 .post-list p { color: var(--ink-soft); margin: .4rem 0 0; }
 
 .backlink { display: inline-block; margin-top: 2.5rem; font-size: 0.9rem; }
+
+/* Buttons, feature cards and details (2026 update) */
+.button {
+  display: inline-block; padding: 0.65rem 1.1rem; border-radius: var(--radius);
+  background: var(--accent); color: #fff; text-decoration: none; font-family: var(--font-display);
+  font-weight: 600; transition: transform .15s ease, box-shadow .15s ease;
+}
+.button:hover { color: #fff; transform: translateY(-2px); box-shadow: 0 10px 24px -14px rgba(0,0,0,.4); }
+.feature-card {
+  padding: 1.5rem 1.6rem; background: var(--paper-card); border: 1px solid var(--line);
+  border-radius: var(--radius); margin: 2rem 0;
+}
+.feature-card > * + * { margin-top: 0.8rem; }
+.feature-card h2 { margin: 0; }
+.feature-card h2 a { text-decoration: none; }
+.card .eyebrow { margin: 0 0 .5rem; font-size: 0.7rem; }
+.card-image--contain { object-fit: contain; background: #fff; border: 1px solid var(--line); }
+details.abstract summary { cursor: pointer; font-weight: 600; font-family: var(--font-display); }
+details.abstract p { margin-top: 0.8rem; color: var(--ink-soft); }
+.home-features { display: grid; gap: var(--gap); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); margin: 1.5rem 0 2.5rem; }
+.home-features .card-image { aspect-ratio: 16 / 9; }
+.past-row { display: flex; flex-wrap: wrap; gap: 0.6rem 1.4rem; margin-top: 0.8rem; }
+.past-row a { text-decoration: none; font-family: var(--font-display); }

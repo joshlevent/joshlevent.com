@@ -1,6 +1,6 @@
 ---
 title: Podcast
-nav: Creative Output
+nav: Past
 description: "Humans with Josh Levent, 2018-2021"
 hero:
   src: "/images/pages/podcast/cover.jpg"

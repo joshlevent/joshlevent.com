@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+import ImageGallery from '../../components/ImageGallery.astro';
+
+export async function getStaticPaths() {
+  const pieces = await getCollection('pieces');
+  return pieces.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+const meta = [d.year, d.status].filter(Boolean).join(' · ');
+---
+<PageLayout title={d.title} description={d.description} eyebrow={meta} hero={d.hero} sectionHref="/projects" sectionLabel="Projects">
+  {d.launch && <p><a class="button" href={d.launch.href}>{d.launch.label} →</a></p>}
+  <Content />
+  <ImageGallery images={d.gallery} layout="stack" label={`${d.title} images`} />
+  {d.launch && <p><a class="button" href={d.launch.href}>{d.launch.label} →</a></p>}
+  <a class="backlink" href="/projects">← All projects</a>
+</PageLayout>

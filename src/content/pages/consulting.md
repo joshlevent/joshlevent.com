@@ -1,18 +1,16 @@
 ---
 title: Consulting
-nav: Work
-description: "A sharp mind applied to problems that don't have an obvious approach."
+nav: Past
+description: "Problems without an obvious approach, 2016 to 2020 and occasionally since."
 hero:
   src: "/images/pages/consulting/blueprint.jpg"
   alt: "An intricate Leonardo da Vinci-style blueprint"
 ---
 
-I do a small amount of consulting at my current one-off rate of 200 Fr. per hour.
+My consulting work concentrated on problems that did not have an obvious approach: situations where the first task was to work out what kind of problem it was, and only then which method would solve it.
 
-I don't guarantee any results but my sharp mind applied to important problems often leads to valuable insight.
+From 2016 to 2018 I did this as Chief Innovation Officer of [Muutu](http://muutu.ch), a technology design studio in Bern, designing solutions for clients across sectors; some of that work is documented under [Business Design](/business-design). From 2018 to 2020 I consulted through my own company, Josh Levent LLC, alongside [coaching](/coaching) and the [podcast](/podcast).
 
-My skills are most concentrated in solving problems that do not have an obvious approach to being solved. I tend to know, or at least be able to intuit or experiment towards, potential approaches.
+Since then, consulting has been occasional and mostly inside the Bern University of Applied Sciences, where I have built a marketing management dashboard, set up a Microsoft Fabric data platform, and run internal Power BI trainings and workshops. The method is the same one I teach in the [Power BI Bootcamp](/power-bi): understand the question, find or build the data, and only then pick the tool.
 
-I do this with students in my Power BI classes for example, but have a lot of experience in various fields besides. Take a look at my [Bio](/bio) or [LinkedIn](https://linkedin.com/in/joshlevent) page for inspiration.
-
-[Get in touch →](/contact)
+For a fuller picture of the fields I have worked in, see my [bio](/bio) or [LinkedIn](https://linkedin.com/in/joshlevent).

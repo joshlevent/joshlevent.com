@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const pieces = (await getCollection('pieces')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Projects" description="Things Josh Levent has built: data sites, tools and interactive pieces.">
+  <div class="prose">
+    <p class="eyebrow">Current</p>
+    <h1>Projects</h1>
+    <p class="lead">Things I have built that you can use or walk through.</p>
+  </div>
+  <div class="wrap">
+    <div class="card-grid">
+      <a class="card" href="https://macroeconomic-outlook.joshlevent.com/">
+        <img class="card-image" src="/images/projects/macroeconomic-outlook.jpg" alt="" loading="lazy" decoding="async" />
+        <p class="eyebrow">External site · updated daily</p>
+        <h3>Macroeconomic Outlook</h3>
+        <p>Official macroeconomic data and publications for 65 economies: growth, prices, labour and interest rates from national statistics offices and central banks.</p>
+      </a>
+      {pieces.map((p) => (
+        <a class="card" href={`/projects/${p.id}`}>
+          <img class="card-image" src={p.data.thumbnail.src} alt="" loading="lazy" decoding="async" />
+          <p class="eyebrow">{[p.data.year, p.data.status].filter(Boolean).join(' · ')}</p>
+          <h3>{p.data.title}</h3>
+          {p.data.description && <p>{p.data.description}</p>}
+        </a>
+      ))}
+      <a class="card" href="/power-bi">
+        <img class="card-image card-image--contain" src="/images/power-bi/architectures/medallion-concept.png" alt="" loading="lazy" decoding="async" />
+        <p class="eyebrow">Reference material</p>
+        <h3>Power BI architectures and examples</h3>
+        <p>Three model architectures and worked examples with DAX and Power Query code, from the Power BI Bootcamp.</p>
+      </a>
+      <a class="card" href="/business-design">
+        <p class="eyebrow">2016 to 2018</p>
+        <h3>Business Design case studies</h3>
+        <p>Five projects from Muutu and before, where design methods found the intersection of human needs, technical feasibility and business viability.</p>
+      </a>
+    </div>
+  </div>
+</BaseLayout>

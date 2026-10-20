@@ -60,16 +60,31 @@ const projects = defineCollection({
   }),
 });
 
-// "coaching" = coaching offers / audiences.
-const coaching = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/coaching' }),
+// "examples" = Power BI examples with DAX / Power Query code (served under /power-bi/examples/).
+const examples = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/examples' }),
   schema: z.object({
     title: z.string(),
-    order: z.number().default(0),
     description: z.string().optional(),
-    hero: imageAsset.optional(),
-    thumbnail: imageAsset,
+    order: z.number().default(0),
+    pbix: z.string().startsWith('/files/').optional(),
   }),
 });
 
-export const collections = { pages, writing, talks, projects, coaching };
+// "pieces" = interactive projects and demos (served under /projects/).
+const pieces = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pieces' }),
+  schema: z.object({
+    title: z.string(),
+    order: z.number().default(0),
+    year: z.string().optional(),
+    description: z.string().optional(),
+    thumbnail: imageAsset,
+    hero: imageAsset.optional(),
+    gallery: z.array(imageAsset).default([]),
+    launch: z.object({ href: z.string(), label: z.string() }).optional(),
+    status: z.string().optional(),
+  }),
+});
+
+export const collections = { pages, writing, talks, projects, examples, pieces };

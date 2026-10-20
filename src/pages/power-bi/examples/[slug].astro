@@ -1,0 +1,17 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../../layouts/PageLayout.astro';
+
+export async function getStaticPaths() {
+  const examples = await getCollection('examples');
+  return examples.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<PageLayout title={d.title} description={d.description} sectionHref="/power-bi" sectionLabel="Power BI" eyebrow="Example">
+  <Content />
+  <a class="backlink" href="/power-bi#examples">← All examples</a>
+</PageLayout>

@@ -1,52 +1,92 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { workedWithLogos, wouldLikeToWorkWithLogos } from '../data/home-logos';
+import { workedWithLogos } from '../data/home-logos';
 
-const sections = [
-  { href: '/coaching', title: 'Coaching', text: 'Solutions-focused coaching for founders, speakers and therapists.' },
-  { href: '/teaching', title: 'Teaching', text: 'Design thinking, no-code, Power BI and entrepreneurship at Swiss universities.' },
-  { href: '/research', title: 'Research', text: 'Agent-based simulations of human economic behaviour to guide policy.' },
-  { href: '/consulting', title: 'Consulting', text: 'A sharp mind applied to problems without an obvious approach.' },
-  { href: '/talks', title: 'Talks', text: 'Two TED Talks and more, on change, emotion and stories.' },
-  { href: '/writing', title: 'Writing', text: 'Essays on economics, design and being human.' },
+const features = [
+  {
+    href: 'https://macroeconomic-outlook.joshlevent.com/',
+    image: '/images/projects/macroeconomic-outlook.jpg',
+    eyebrow: 'Data site · updated daily',
+    title: 'Macroeconomic Outlook',
+    text: 'Official data and publications for 65 economies, in one place.',
+  },
+  {
+    href: '/projects/standortdossier',
+    image: '/images/projects/standortdossier/plan.png',
+    eyebrow: 'Tool · 2026',
+    title: 'Standortdossier',
+    text: 'A location report on any Swiss address, from public registers and geodata.',
+  },
+  {
+    href: '/projects/unsigned',
+    image: '/images/projects/unsigned/street.jpg',
+    eyebrow: 'Interactive · 2026',
+    title: 'Unsigned',
+    text: 'A walk through a building whose signs thin out until there are none.',
+  },
 ];
 
+const current = [
+  { href: '/economics', title: 'Economics', text: 'Macroeconomic data and forecasting, agent-based simulation, and a thesis on whether ABMs add predictive information.' },
+  { href: '/power-bi', title: 'Power BI', text: 'Six years of teaching the Power BI Bootcamp at BFH, with tutorials, model architectures and worked examples.' },
+  { href: '/projects', title: 'Projects', text: 'Data sites, tools and interactive pieces you can use or walk through.' },
+];
+
+const past = [
+  { href: '/teaching', text: 'Teaching' },
+  { href: '/podcast', text: 'Podcast' },
+  { href: '/talks', text: 'Talks' },
+  { href: '/consulting', text: 'Consulting' },
+  { href: '/coaching', text: 'Coaching' },
+  { href: '/business-design', text: 'Business Design' },
+];
 ---
 <BaseLayout title="Josh Levent">
   <section class="hero wrap">
-    <p class="eyebrow">Economist · Designer · Data Scientist</p>
-    <h1>I help smart companies create the future.</h1>
+    <p class="eyebrow">Economist · Data · Teaching</p>
+    <h1>I build things that make the economy easier to see.</h1>
     <p class="lead">
-      Teacher. TEDx speaker. Power BI Expert. I work at the intersection of human
-      behaviour, design and economics — from coaching founders to simulating whole economies.
+      Applied economist and Power BI lecturer in Bern. I teach people to answer their own questions
+      with their own data, collect the world's macroeconomic statistics in one place, and build the
+      occasional thing that is just for looking at.
     </p>
-    <p><a href="/bio">Read my story →</a> &nbsp; <a href="/contact">Get in touch →</a></p>
+    <p><a href="/bio">Who I am →</a> &nbsp; <a href="/now">What I'm doing now →</a></p>
   </section>
 
   <section class="wrap">
+    <div class="home-features">
+      {features.map((f) => (
+        <a class="card" href={f.href}>
+          <img class="card-image" src={f.image} alt="" loading="lazy" decoding="async" />
+          <p class="eyebrow">{f.eyebrow}</p>
+          <h3>{f.title}</h3>
+          <p>{f.text}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap">
+    <p class="eyebrow">Current</p>
     <div class="card-grid">
-      {sections.map((s) => (
+      {current.map((s) => (
         <a class="card" href={s.href}><h3>{s.title}</h3><p>{s.text}</p></a>
       ))}
     </div>
   </section>
 
-  <section class="wrap logos">
-    <p class="eyebrow center">Notable organisations I've worked with</p>
-    <div class="logo-row">
-      {workedWithLogos.map((logo) => (
-        <figure title={`${logo.name} — ${logo.role}`}>
-          <img src={logo.src} alt={logo.name} loading="lazy" decoding="async" />
-        </figure>
-      ))}
-    </div>
+  <section class="wrap">
+    <p class="eyebrow">Past</p>
+    <p class="past-row">
+      {past.map((p) => <a href={p.href}>{p.text}</a>)}
+    </p>
   </section>
 
   <section class="wrap logos">
-    <p class="eyebrow center">Organisations I would love to work with — <a href="/contact">please get in touch</a></p>
+    <p class="eyebrow center">Organisations I've worked with</p>
     <div class="logo-row">
-      {wouldLikeToWorkWithLogos.map((logo) => (
-        <figure title={logo.name}>
+      {workedWithLogos.map((logo) => (
+        <figure title={`${logo.name} — ${logo.role}`}>
           <img src={logo.src} alt={logo.name} loading="lazy" decoding="async" />
         </figure>
       ))}

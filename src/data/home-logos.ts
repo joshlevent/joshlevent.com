@@ -23,13 +23,3 @@ export const workedWithLogos: HomeLogo[] = [
   { name: 'TEDxSquareMile', role: 'Speaker', src: '/images/home/logos/worked-with/tedx-square-mile.jpg' },
 ];
 
-export const wouldLikeToWorkWithLogos: HomeLogo[] = [
-  { name: 'Spotify', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/spotify.jpg' },
-  { name: 'Lufthansa', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/lufthansa.jpeg' },
-  { name: 'ABB', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/abb.jpg' },
-  { name: 'Starbucks', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/starbucks.png' },
-  { name: 'Accenture', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/accenture.jpg' },
-  { name: 'IDEO', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/ideo.png' },
-  { name: 'Apple', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/apple.png' },
-  { name: 'Disney', role: 'Organisation I would like to work with', src: '/images/home/logos/would-like-to-work-with/disney.png' },
-];

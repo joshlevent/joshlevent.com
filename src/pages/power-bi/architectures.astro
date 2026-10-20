@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SectionLabel from '../../components/SectionLabel.astro';
+import { architectures } from '../../data/power-bi';
+---
+<BaseLayout title="Power BI Model Architectures" description="Three reference architectures for Power BI and Microsoft Fabric, with diagrams to download.">
+  <article class="prose prose--wide">
+    <SectionLabel href="/power-bi" label="Power BI" meta="Architectures" />
+    <h1>Model architectures</h1>
+    <p class="lead">Three ways to arrange the pieces between a data source and a Power BI report, in increasing order of organisation.</p>
+
+    {architectures.map((a) => (
+      <section class="architecture" id={a.id}>
+        <h2>{a.title}</h2>
+        <a href={a.image}><img src={a.image} alt={a.title} loading="lazy" decoding="async" /></a>
+        {a.text.map((t) => <p>{t}</p>)}
+        <p><a href={a.pdf}>Download the diagram (PDF)</a></p>
+      </section>
+    ))}
+  </article>
+</BaseLayout>
+
+<style>
+  .architecture { width: min(100%, var(--measure)); margin: 3rem auto 0; }
+  .architecture > * + * { margin-top: 1rem; }
+  .architecture img { width: 100%; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; }
+</style>
