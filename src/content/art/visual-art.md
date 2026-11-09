@@ -1,7 +1,12 @@
 ---
 title: Visual Art
-nav: About
+order: 2
+year: "2022"
 description: "A series of abstract explorations made with MidJourney, 2022."
+thumbnail:
+  src: "/images/art/01-abstract-squares.jpg"
+  alt: "Abstract composition of baroque, constructivist and surreal squares"
+galleryLayout: grid
 gallery:
   - src: "/images/art/01-abstract-squares.jpg"
     alt: "Abstract composition of baroque, constructivist and surreal squares"

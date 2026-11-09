@@ -1,10 +1,10 @@
 ---
 title: Awards & Press
 nav: About
-description: "Selected awards and press mentions."
+description: ""
 ---
 
-A selection of awards and press appearances over the years.
+
 
 - **September 2018** — [Video appearance](https://youtu.be/1d9GFwwHExo?t=707)
 

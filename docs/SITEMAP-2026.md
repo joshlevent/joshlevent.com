@@ -4,7 +4,7 @@ Supersedes the migration-era structure in SITEMAP.md. Navigation is now Current 
 "Current" is what Josh works on now, "Past" is work that is finished or occasional, "About" is the person.
 
 ```
-/                                     Home (features: Macroeconomic Outlook, Standortdossier, Unsigned)
+/                                     Home (features: Macroeconomic Outlook, Power BI)
 │
 ├── Current
 │   ├── /economics                    Research interests, Master thesis (PDF in /files), Macroeconomic Outlook card
@@ -12,8 +12,7 @@ Supersedes the migration-era structure in SITEMAP.md. Navigation is now Current 
 │   │   ├── /power-bi/architectures   Three architectures on one page (PNG + PDF in /images and /files)
 │   │   └── /power-bi/examples/<slug> Worked examples with DAX / Power Query code and a .pbix
 │   └── /projects                     Card index (Outlook external, pieces, Power BI, Business Design)
-│       ├── /projects/<slug>          One page per piece (src/content/pieces)
-│       └── /projects/unsigned/live/  The Unsigned walk itself: a raw static page in public/, not Astro
+│       └── /projects/<slug>          One page per piece (src/content/pieces)
 │
 ├── Past
 │   ├── /teaching                     HKB, MDBA, HSLU, viscom, conference facilitation
@@ -26,7 +25,10 @@ Supersedes the migration-era structure in SITEMAP.md. Navigation is now Current 
 └── About
     ├── /bio
     ├── /writing, /writing/<slug>, /writing/rss.xml
-    ├── /art
+    ├── /art                          Card index (src/content/art)
+    │   ├── /art/visual-art           MidJourney series, 2022 (grid gallery)
+    │   ├── /art/unsigned
+    │   └── /art/unsigned/live/       The Unsigned walk itself: a raw static page in public/, not Astro
     ├── /awards-press
     ├── /now
     └── /contact
@@ -52,5 +54,6 @@ DNS CNAME records removed.
 - Power BI page text and playlists: `src/data/power-bi.ts`
 - Examples: `src/content/examples/*.md`, files in `public/files/power-bi/examples/`
 - Pieces (Projects): `src/content/pieces/*.md`, images in `public/images/projects/<slug>/`
-- Unsigned walk: `public/projects/unsigned/live/` (index.html + vendored three.js 0.170.0). Replace the whole folder to update.
+- Art: `src/content/art/*.md`, images in `public/images/art/` (Unsigned in `public/images/art/unsigned/`)
+- Unsigned walk: `public/art/unsigned/live/` (index.html + vendored three.js 0.170.0). Replace the whole folder to update.
 - Thesis: `public/files/josh-levent-msc-thesis-2026.pdf`

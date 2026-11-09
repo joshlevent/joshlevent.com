@@ -2,12 +2,9 @@
 title: Economics
 nav: Current
 description: "Macroeconomic data, forecasting, and simulations of human economic behaviour."
-hero:
-  src: "/images/pages/economics/hans-isaacson.jpg"
-  alt: "Campfire on the beach"
 ---
 
-In January 2026 I completed a Master of Science in Applied Economics at the University of Neuchâtel (summa cum laude, data science focus). My interest is in how well our models of the economy describe it, and in building better ones: from macroeconomic forecasting and measurement to agent-based simulations of whole societies.
+In January 2026 I completed a Master of Science in Applied Economics at the University of Neuchâtel (summa cum laude, major in data science). My interest is in how well our models of the economy describe it, and in building better ones: from macroeconomic forecasting and measurement to agent-based simulations of whole societies.
 
 <div class="feature-card">
   <p class="eyebrow">Live project</p>

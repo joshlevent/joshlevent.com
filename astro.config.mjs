@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import textEditor from './tools/text-editor/index.mjs';
 
 // One place to preserve old Squarespace URLs. Add a line whenever you move a page.
 // Left = old path, right = new path. Astro emits a redirect page for each.
@@ -42,5 +43,6 @@ export default defineConfig({
   site: 'https://joshlevent.com',
   trailingSlash: 'ignore',
   redirects,
-  integrations: [sitemap()],
+  // textEditor is dev-only: Option-click text in `npm run dev` to edit it. It does nothing in builds.
+  integrations: [sitemap(), textEditor()],
 });

@@ -71,20 +71,29 @@ const examples = defineCollection({
   }),
 });
 
+const piece = z.object({
+  title: z.string(),
+  order: z.number().default(0),
+  year: z.string().optional(),
+  description: z.string().optional(),
+  thumbnail: imageAsset,
+  hero: imageAsset.optional(),
+  gallery: z.array(imageAsset).default([]),
+  galleryLayout: z.enum(['grid', 'stack']).default('stack'),
+  launch: z.object({ href: z.string(), label: z.string() }).optional(),
+  status: z.string().optional(),
+});
+
 // "pieces" = interactive projects and demos (served under /projects/).
 const pieces = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pieces' }),
-  schema: z.object({
-    title: z.string(),
-    order: z.number().default(0),
-    year: z.string().optional(),
-    description: z.string().optional(),
-    thumbnail: imageAsset,
-    hero: imageAsset.optional(),
-    gallery: z.array(imageAsset).default([]),
-    launch: z.object({ href: z.string(), label: z.string() }).optional(),
-    status: z.string().optional(),
-  }),
+  schema: piece,
 });
 
-export const collections = { pages, writing, talks, projects, examples, pieces };
+// "art" = visual and interactive art, same shape as pieces (served under /art/).
+const art = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/art' }),
+  schema: piece,
+});
+
+export const collections = { pages, writing, talks, projects, examples, pieces, art };

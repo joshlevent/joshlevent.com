@@ -8,28 +8,22 @@ const features = [
     image: '/images/projects/macroeconomic-outlook.jpg',
     eyebrow: 'Data site · updated daily',
     title: 'Macroeconomic Outlook',
-    text: 'Official data and publications for 65 economies, in one place.',
+    text: 'Official data and publications from 65 economies.',
   },
   {
-    href: '/projects/standortdossier',
-    image: '/images/projects/standortdossier/plan.png',
-    eyebrow: 'Tool · 2026',
-    title: 'Standortdossier',
-    text: 'A location report on any Swiss address, from public registers and geodata.',
-  },
-  {
-    href: '/projects/unsigned',
-    image: '/images/projects/unsigned/street.jpg',
-    eyebrow: 'Interactive · 2026',
-    title: 'Unsigned',
-    text: 'A walk through a building whose signs thin out until there are none.',
+    href: '/power-bi',
+    image: '/images/power-bi/architectures/medallion-concept.png',
+    imageContain: true,
+    eyebrow: 'Reference material',
+    title: 'Power BI architectures and examples',
+    text: 'Three model architectures and worked examples with DAX and Power Query code.',
   },
 ];
 
 const current = [
-  { href: '/economics', title: 'Economics', text: 'Macroeconomic data and forecasting, agent-based simulation, and a thesis on whether ABMs add predictive information.' },
+  { href: '/economics', title: 'Economics', text: 'Macroeconomic data and forecasting, agent-based simulation, and my thesis on whether ABMs add predictive information.' },
   { href: '/power-bi', title: 'Power BI', text: 'Six years of teaching the Power BI Bootcamp at BFH, with tutorials, model architectures and worked examples.' },
-  { href: '/projects', title: 'Projects', text: 'Data sites, tools and interactive pieces you can use or walk through.' },
+  { href: '/projects', title: 'Projects', text: 'Data sites, tools and interactive websites.' },
 ];
 
 const past = [
@@ -43,7 +37,7 @@ const past = [
 ---
 <BaseLayout title="Josh Levent">
   <section class="hero wrap">
-    <p class="eyebrow">Economist · Data · Teaching</p>
+    <p class="eyebrow">Economist · Data Scientist · Lecturer</p>
     <h1>I build things that make the economy easier to see.</h1>
     <p class="lead">
       Applied economist and Power BI lecturer in Bern. I teach people to answer their own questions
@@ -53,11 +47,11 @@ const past = [
     <p><a href="/bio">Who I am →</a> &nbsp; <a href="/now">What I'm doing now →</a></p>
   </section>
 
-  <section class="wrap">
+  <section class="wrap features">
     <div class="home-features">
       {features.map((f) => (
         <a class="card" href={f.href}>
-          <img class="card-image" src={f.image} alt="" loading="lazy" decoding="async" />
+          <img class:list={['card-image', f.imageContain && 'card-image--contain']} src={f.image} alt="" loading="lazy" decoding="async" />
           <p class="eyebrow">{f.eyebrow}</p>
           <h3>{f.title}</h3>
           <p>{f.text}</p>
@@ -96,6 +90,7 @@ const past = [
 
 <style>
   .hero { padding: clamp(1rem, 4vw, 3rem) 0; max-width: 48rem; }
+  .features { max-width: 48rem; }
   .logos { margin-top: 3rem; }
   .logo-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: 1.25rem; align-items: center; margin-top: 1.25rem; }
   .logo-row figure { display: grid; place-items: center; height: 5rem; margin: 0; padding: .75rem; }

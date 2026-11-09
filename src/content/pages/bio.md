@@ -42,10 +42,10 @@ Making an impact is core to my worldview and I do this both through my work, but
 
 ## Angel Investments
 
-As an angel investor I put my money in a small number of private startups whose mission I believe in. As of August 2026 I have stakes in [Neurohacker Collective](https://www.neurohacker.com/) and [Atom Limbs](https://atomlimbs.com/).
+As an angel investor I put my money in a small number of private startups whose mission I believe in. As of August 2026 I have stakes in [Qualia Life Sciences](https://www.qualialife.com/) and [Atom Limbs](https://atomlimbs.com/).
 
 <div class="inline-logo-row">
-  <img src="/images/pages/bio/neurohacker-collective.png" alt="Neurohacker Collective" loading="lazy" />
+  <img src="/images/pages/bio/qualia-life-sciences.png" alt="Qualia Life Sciences" loading="lazy" />
   <img src="/images/pages/bio/atom-limbs.png" alt="Atom Limbs" loading="lazy" />
 </div>
 

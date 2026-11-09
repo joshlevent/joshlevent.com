@@ -21,15 +21,15 @@ The idea is that the first look at a property should not depend on what the sell
 
 ## What the dossier finds
 
-Two outputs carry it, and both are things a buyer cannot work out for themselves:
+Two highlights that provide analysis on top of the raw data pulled from government sites:
 
-- **Shading and direct sun, as built today.** Computed from the national surface model: when the sun actually reaches the house on the 21st of December, March and June, given the real horizon of terrain and neighbouring buildings. The image above shows the result for an address in Grindelwald, where the mountains take the winter sun entirely.
+- **Shading and direct sun, as built today.** Computed from the national surface model: when the sun actually reaches the house on the 21st of December, March and June, given the real horizon of terrain and neighbouring buildings. The image below shows the result for an address in Grindelwald, where the mountains block the winter sun for much of the day.
 - **What the neighbours could build.** An empirical massing envelope: what comparable parcels in the same zone of the same commune have actually been built to, applied as a plausible future mass next door, and the resulting loss of light. The plan at the top shows this for an address in Liebefeld, with the possible envelopes hatched in red.
 
-Around those two sit the supporting findings: noise against the legal limits for living rooms, natural hazards, contaminated sites, the heating system and its replacement obligations, the tax burden for a reference household compared with neighbouring communes, pending building applications nearby, distances to stations, shops, schools and childcare, and a list of questions to put to the seller and things to check on site.
+Around those two sit the supporting findings: noise against the legal limits for living rooms, natural hazards, contaminated sites, the heating system and its replacement obligations, the tax burden for a reference household compared with neighbouring communes, pending building applications nearby, distances to stations, shops, schools and childcare, and a list of questions to ask the seller and things to check on site.
 
 ## How it is built
 
-Python, PostGIS and Typst. The address is resolved to its parcel and building through the federal registers (EGRID and EGID); every module then queries the relevant cantonal or federal service live, writes its findings into one fact set, and the report renders from that. Coverage of the neighbour-development analysis depends on which cantons publish open cadastral and zoning data; the dossier says so where a section is unavailable rather than guessing.
+Python, PostGIS and Typst. The address is resolved to its parcel and building through the federal registers (EGRID and EGID); every module then queries the relevant cantonal or federal service live, writes its findings into one fact set, and the report renders from that. Coverage of the neighbour-development analysis depends on which cantons publish open cadastral and zoning data.
 
-A demo with pre-built dossiers for a handful of showcase addresses will appear here.
+A demo with pre-built dossiers for a handful of showcase addresses will appear here soon.

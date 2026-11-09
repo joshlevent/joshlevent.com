@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const pieces = (await getCollection('art')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Art" description="Visual and interactive art by Josh Levent.">
+  <div class="prose">
+    <p class="eyebrow">About</p>
+    <h1>Art</h1>
+    <p class="lead"></p>
+  </div>
+  <div class="wrap">
+    <div class="card-grid">
+      {pieces.map((p) => (
+        <a class="card" href={`/art/${p.id}`}>
+          <img class="card-image" src={p.data.thumbnail.src} alt="" loading="lazy" decoding="async" />
+          <p class="eyebrow">{[p.data.year, p.data.status].filter(Boolean).join(' · ')}</p>
+          <h3>{p.data.title}</h3>
+          {p.data.description && <p>{p.data.description}</p>}
+        </a>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
